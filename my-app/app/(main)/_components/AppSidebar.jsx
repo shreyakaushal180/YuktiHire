@@ -1,9 +1,9 @@
-"use client"
-import Image from 'next/image';
+"use client";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Link from 'next/link';
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react"; 
+import { Plus } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -12,42 +12,67 @@ import {
   SidebarHeader,
   SidebarMenu,
   SidebarMenuItem,
-  SidebarMenuButton
+  SidebarMenuButton,
 } from "@/components/ui/sidebar";
 
-import { SideBarOptions } from "../../../services/Constants"; // Corrected path
+import { SideBarOptions } from "../../../services/Constants";
 
 export function AppSidebar() {
-    const path = usePathname();
-    console.log(path);
+  const path = usePathname();
+
   return (
-    <Sidebar>
-      <SidebarHeader className='flex items-center mt-5'>
-        <Image
-          src='/logo.png'
-          alt="logo"
-          width={200}
-          height={100}
-          className="w-[150px] h-[150px]"
-        />
-        <Button className='w-full mt-5'>
-          <Plus /> Create New Interview
+    <Sidebar className="border-r bg-white shadow-lg min-w-[250px] max-w-[260px]">
+      {/* Header with logo + CTA */}
+      <SidebarHeader className="flex flex-col items-center justify-center py-8 space-y-5">
+        <div className="rounded-full shadow-md p-2 bg-white">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={100}
+            height={100}
+            className="object-contain"
+          />
+        </div>
+
+        <Button className="w-[90%] bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold text-sm py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+          <Plus className="w-4 h-4" />
+          Create Interview
         </Button>
       </SidebarHeader>
 
-      <SidebarContent>
+      {/* Menu Options */}
+      <SidebarContent className="mt-4 px-2">
         <SidebarGroup>
           <SidebarMenu>
             {SideBarOptions.map((option, index) => {
               const Icon = option.icon;
+              const isActive = path === option.path;
+
               return (
-                <SidebarMenuItem key={index} className={'p-1'}>
-                  <SidebarMenuButton asChild className={`p-5 ${path == option.path && 'bg-blue-50'}`}>
-                    <Link href={option.path}>
+                <SidebarMenuItem key={index} className="my-1">
+                  <SidebarMenuButton
+                    asChild
+                    className={`group flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                      isActive
+                        ? "bg-blue-50 text-blue-700 shadow-sm"
+                        : "hover:bg-gray-100"
+                    }`}
+                  >
+                    <Link href={option.path} className="flex items-center w-full gap-3">
                       {Icon && (
-                        <Icon className={`text-[16px] ${path === option.path ? 'text-primary' : ''}`} />
+                        <Icon
+                          className={`w-5 h-5 transition-transform duration-200 group-hover:scale-110 ${
+                            isActive
+                              ? "text-blue-700"
+                              : "text-gray-500 group-hover:text-gray-700"
+                          }`}
+                        />
                       )}
-                      <span className={`text-[16px] font-medium ${path === option.path ? 'text-primary' : ''}`}>
+                      <span
+                        className={`text-[15px] font-medium ${
+                          isActive ? "text-blue-700" : "text-gray-800"
+                        }`}
+                      >
                         {option.name}
                       </span>
                     </Link>
@@ -59,7 +84,10 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter />
+      {/* Footer */}
+      <SidebarFooter className="py-5 border-t border-gray-200 text-xs text-gray-500 text-center">
+        © {new Date().getFullYear()} <span className="font-medium">FitSync AI</span>
+      </SidebarFooter>
     </Sidebar>
   );
 }
