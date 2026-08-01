@@ -1,54 +1,55 @@
-# YuktiHire — Full Stack Gen AI Interview System
+# YuktiHire
 
-## Project Overview
+**Gen AI-Powered Interview Preparation Platform**
 
-**YuktiHire** is a full-stack interview preparation platform that connects candidate resumes with targeted job descriptions using generative AI. The system is designed to analyze resumes, identify skill gaps, generate interview questions, and create ATS-friendly resume variants for specific roles.
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 
-## Key Features
+> Connects candidate resumes with targeted job descriptions to surface skill gaps, generate tailored interview questions, and produce ATS-friendly resume variants — helping candidates prepare smarter for specific roles.
 
-- User registration and authentication with JWT sessions
-- Secure logout with token blacklisting
-- Resume upload via PDF and text extraction
-- AI-driven interview report generation
-- Score, skill gap analysis, technical/behavioral question suggestions, and preparation plans
-- Targeted resume generation and PDF export
-- Report history tracking and retrieval
+Built with a modular Node.js/Express backend and a planned React frontend, YuktiHire combines resume parsing, AI-driven analysis, and report generation into a single streamlined workflow for interview readiness.
 
-## Architecture
+## What It Does
 
-### Backend
-- Node.js + Express.js
-- MongoDB + Mongoose
-- Modular folders for routes, controllers, models, and services
-- AI integration via a dedicated service layer
-- Resume processing with PDF upload and parsing
+→ **Secure Authentication** — JWT-based sessions with secure logout via token blacklisting
 
-### Frontend (planned)
-- React.js + Vite
-- SCSS styling
-- React Router for navigation
-- Axios for API calls
-- Four-layer architecture:
-  1. UI Layer
-  2. Hooks Layer
-  3. State Layer
-  4. API Layer
+→ **Resume Processing** — Upload and parse resumes directly from PDF
+
+→ **AI Interview Reports** — Generated from the candidate's resume against a target job description
+
+→ **Skill Gap Analysis** — Job-fit scoring and identification of missing skills
+
+→ **Question Suggestions** — Technical and behavioral questions tailored to the role
+
+→ **Preparation Plans** — Personalized study plans built around identified gaps
+
+→ **Resume Generation** — Targeted, ATS-friendly resume variants with PDF export
+
+→ **Report History** — Track and revisit past interview reports
+
+## Built With
+
+`Node.js`  `Express.js`  `MongoDB`  `Mongoose`  ·  `React.js` *(planned)*  `Vite`  `SCSS`  `React Router`  `Axios`
 
 ## Getting Started
 
-### Prerequisites
-- Node.js 18+ installed
-- MongoDB Atlas or local MongoDB URI
+**Prerequisites**
+- Node.js 18+
+- MongoDB Atlas or a local MongoDB instance
 
-### Install dependencies
+**Installation**
 
 ```bash
+git clone https://github.com/your-username/yuktihire.git
+cd yuktihire
 npm install
 ```
 
-### Environment Variables
+**Environment Variables**
 
-Create a `.env` file in the project root with values like:
+Create a `.env` file in the project root:
 
 ```dotenv
 MONGO_URI=your_mongo_connection_string
@@ -57,30 +58,25 @@ JWT_EXPIRES_IN=7d
 FRONTEND_URL=http://localhost:5173
 ```
 
-### Run the server
+**Run the Server**
 
 ```bash
 node server.js
 ```
 
-## Recommended Branch / Commit Strategy
+## Project Structure
 
-- `main` for production-ready code
-- `feature/auth` for authentication work
-- `feature/interview-reports` for report generation and persistence
-- `feature/resume-pdf` for targeted resume generation
-- `feature/frontend` for the React app scaffold
+The backend follows a modular, layered architecture:
 
-## Notes
+```
+yuktihire/
+├── routes/        # API endpoint definitions
+├── controllers/    # Request handling and response logic
+├── models/         # Mongoose schemas
+├── services/       # AI integration and business logic
+└── server.js        # App entry point
+```
 
-- Keep sensitive data out of version control by using `.env`
-- Use small, focused commits for each feature or architecture change
-- The AI integration is currently planned as a replaceable service module so Gemini can be swapped in later
+The frontend (planned) will follow a four-layer architecture — UI, Hooks, State, and API layers — to keep concerns cleanly separated.
 
-## Next Steps
 
-1. Implement backend auth and JWT middleware
-2. Build report storage and resume upload endpoints
-3. Create AI service adapter and PDF generation pipeline
-4. Scaffold the frontend app and protected routes
-5. Add validation, loading states, and UX polish
