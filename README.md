@@ -132,8 +132,10 @@ MONGO_URI=your_mongo_connection_string
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN=7d
 GOOGLE_GENAI_API_KEY=your_google_genai_api_key
-FRONTEND_URL=http://localhost:5173
+CLIENT_URL=http://localhost:5173
 ```
+
+For frontend builds, set `VITE_API_BASE_URL` in `Frontend/.env` or in Render environment variables to your backend URL.
 
 ---
 

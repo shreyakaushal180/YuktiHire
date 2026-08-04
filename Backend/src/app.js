@@ -1,13 +1,18 @@
 const express = require("express")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
+const path = require("path")
+const fs = require("fs")
 
 const app = express()
+
+const clientUrl = process.env.CLIENT_URL || "http://localhost:5173"
+const frontendDistPath = path.join(__dirname, "../Frontend/dist")
 
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: clientUrl,
     credentials: true
 }))
 
