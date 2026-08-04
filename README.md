@@ -1,42 +1,116 @@
-# YuktiHire
+<div align="center">
 
-**Gen AI-Powered Interview Preparation Platform**
+# 🎯 YuktiHire
+
+### Gen AI-Powered Interview Preparation Platform
+
+YuktiHire analyzes a candidate's resume and a job description to generate interview reports, targeted questions, skill gap insights, and ATS-friendly resume support.
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-> YuktiHire analyzes a candidate's resume and a job description to generate interview reports, targeted questions, skill gap insights, and ATS-friendly resume support.
+</div>
 
-## Project Overview
+---
+
+## 📖 Table of Contents
+
+- [Overview](#-overview)
+- [Screenshots](#-screenshots)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Environment Variables](#-environment-variables)
+- [Running the Project](#-running-the-project)
+- [Directory Structure](#-directory-structure)
+- [Notes](#-notes)
+- [License](#-license)
+
+---
+
+## 📌 Overview
 
 This repository contains two separate applications:
 
-- `Backend/` — Node.js + Express API server with MongoDB, authentication, resume parsing, and AI report generation.
-- `Frontend/` — Vite-powered React application with authentication, interview flow, report viewing, and PDF resume download.
+| App | Description |
+|---|---|
+| `Backend/` | Node.js + Express API server with MongoDB, authentication, resume parsing, and AI report generation. |
+| `Frontend/` | Vite-powered React application with authentication, interview flow, report viewing, and PDF resume download. |
 
-## Features
+---
 
-- JWT authentication with token blacklisting
-- Resume upload and parsing
-- AI-powered interview report generation
-- Technical and behavioral question suggestions
-- Personalized preparation roadmap
-- Resume PDF export
-- Recent report history and report detail views
+## 🖼️ Screenshots
 
-## Tech Stack
+<!--
+  Add your screenshots to a folder like `docs/screenshots/` in the repo root,
+  then update the paths below to point to each image.
+  Recommended size: 1280x720 or similar, PNG/JPG, kept under ~1MB each.
+-->
 
-- Backend: Node.js, Express, MongoDB, Mongoose, bcryptjs, jsonwebtoken, dotenv, multer, pdf-parse, Puppeteer, Google GenAI
-- Frontend: React, Vite, React Router, Axios, SCSS, @vitejs/plugin-react
+<div align="center">
 
-## Prerequisites
+### Landing Page
+<img src="./docs/screenshots/landing-page.png" alt="Landing Page" width="800"/>
+
+### Login / Authentication
+<img src="./docs/screenshots/auth.png" alt="Login Page" width="800"/>
+
+### Resume Upload & Job Description Input
+<img src="./docs/screenshots/upload.png" alt="Resume Upload" width="800"/>
+
+### AI-Generated Interview Report
+<img src="./docs/screenshots/report.png" alt="Interview Report" width="800"/>
+
+### Skill Gap & Roadmap View
+<img src="./docs/screenshots/roadmap.png" alt="Skill Gap Roadmap" width="800"/>
+
+</div>
+
+> 💡 **Tip:** Once you add real screenshots, remove this note and the placeholder comment above.
+
+---
+
+## ✨ Features
+
+- 🔐 JWT authentication with token blacklisting
+- 📄 Resume upload and parsing
+- 🤖 AI-powered interview report generation
+- 💬 Technical and behavioral question suggestions
+- 🗺️ Personalized preparation roadmap
+- 📥 Resume PDF export
+- 🕓 Recent report history and report detail views
+
+---
+
+## 🛠️ Tech Stack
+
+**Backend**
+- Node.js, Express
+- MongoDB, Mongoose
+- bcryptjs, jsonwebtoken, dotenv
+- multer, pdf-parse, Puppeteer
+- Google GenAI
+
+**Frontend**
+- React, Vite
+- React Router, Axios
+- SCSS
+- @vitejs/plugin-react
+
+---
+
+## ✅ Prerequisites
 
 - Node.js 18+
-- MongoDB Atlas or local MongoDB instance
+- MongoDB Atlas or a local MongoDB instance
 
-## Installation
+---
+
+## ⚙️ Installation
 
 ### Backend
 
@@ -52,9 +126,11 @@ cd Frontend
 npm install
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file inside `Backend/` with:
+## 🔑 Environment Variables
+
+Create a `.env` file inside `Backend/` with the following:
 
 ```dotenv
 MONGO_URI=your_mongo_connection_string
@@ -64,9 +140,11 @@ GOOGLE_GENAI_API_KEY=your_google_genai_api_key
 FRONTEND_URL=http://localhost:5173
 ```
 
-## Running the Project
+---
 
-Open two terminals.
+## ▶️ Running the Project
+
+Open two terminals — one for the backend, one for the frontend.
 
 ### Start backend
 
@@ -75,7 +153,7 @@ cd Backend
 npm start
 ```
 
-The backend runs on `http://localhost:3000`.
+Runs on **`http://localhost:3000`**
 
 ### Start frontend
 
@@ -84,9 +162,11 @@ cd Frontend
 npm run dev
 ```
 
-The frontend runs on `http://localhost:5173` (or the next available port if 5173 is in use).
+Runs on **`http://localhost:5173`** (or the next available port if `5173` is in use)
 
-## Directory Structure
+---
+
+## 📂 Directory Structure
 
 ### Backend
 
@@ -134,28 +214,22 @@ Frontend/
 └── package-lock.json
 ```
 
-## Notes
+---
 
-- The backend and frontend are run separately in different folders.
-- If `vite` opens on a different port, use the port printed in the terminal.
+## 📝 Notes
+
+- The backend and frontend are run separately, in different folders.
+- If Vite opens on a different port, use the port printed in the terminal.
 - Make sure the MongoDB connection string and API key are valid in `Backend/.env`.
 
-## Useful Commands
+---
 
-From `Backend/`:
+## 🚀 Useful Commands
 
-```bash
-npm start
-```
+| Location | Command | Description |
+|---|---|---|
+| `Backend/` | `npm start` | Starts the API server |
+| `Frontend/` | `npm run dev` | Starts the Vite dev server |
 
-From `Frontend/`:
-
-```bash
-npm run dev
-```
-
-## License
-
-ISC
-
+---
 
