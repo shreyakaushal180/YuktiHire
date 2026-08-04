@@ -13,7 +13,8 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
     origin: clientUrl,
-    credentials: true
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
 }))
 
 /* require all routes*/
