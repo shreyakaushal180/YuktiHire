@@ -45,8 +45,7 @@ This repository contains two separate applications:
 
 ## Live Demo
 
-- Frontend: https://yuktihire-frontend.onrender.com
-- Backend API: https://yuktihire.onrender.com
+- https://yuktihire-frontend.onrender.com/login
 
 > If your Render service URLs are different, update these links to match your actual deployed domains.
 
