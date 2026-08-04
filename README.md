@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎯 YuktiHire
+# YuktiHire
 
 ### Gen AI-Powered Interview Preparation Platform
 
@@ -16,7 +16,7 @@ YuktiHire analyzes a candidate's resume and a job description to generate interv
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Screenshots](#-screenshots)
@@ -32,7 +32,7 @@ YuktiHire analyzes a candidate's resume and a job description to generate interv
 
 ---
 
-## 📌 Overview
+## Overview
 
 This repository contains two separate applications:
 
@@ -43,13 +43,8 @@ This repository contains two separate applications:
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
-<!--
-  Add your screenshots to a folder like `docs/screenshots/` in the repo root,
-  then update the paths below to point to each image.
-  Recommended size: 1280x720 or similar, PNG/JPG, kept under ~1MB each.
--->
 
 <div align="center">
 
@@ -70,23 +65,23 @@ This repository contains two separate applications:
 
 </div>
 
-> 💡 **Tip:** Once you add real screenshots, remove this note and the placeholder comment above.
+
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔐 JWT authentication with token blacklisting
-- 📄 Resume upload and parsing
-- 🤖 AI-powered interview report generation
-- 💬 Technical and behavioral question suggestions
-- 🗺️ Personalized preparation roadmap
-- 📥 Resume PDF export
-- 🕓 Recent report history and report detail views
+- JWT authentication with token blacklisting
+- Resume upload and parsing
+- AI-powered interview report generation
+- Technical and behavioral question suggestions
+- Personalized preparation roadmap
+- Resume PDF export
+- Recent report history and report detail views
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Backend**
 - Node.js, Express
@@ -103,14 +98,14 @@ This repository contains two separate applications:
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
 - Node.js 18+
 - MongoDB Atlas or a local MongoDB instance
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### Backend
 
@@ -128,7 +123,7 @@ npm install
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 Create a `.env` file inside `Backend/` with the following:
 
@@ -142,7 +137,7 @@ FRONTEND_URL=http://localhost:5173
 
 ---
 
-## ▶️ Running the Project
+## Running the Project
 
 Open two terminals — one for the backend, one for the frontend.
 
@@ -166,7 +161,7 @@ Runs on **`http://localhost:5173`** (or the next available port if `5173` is in 
 
 ---
 
-## 📂 Directory Structure
+## Directory Structure
 
 ### Backend
 
@@ -216,7 +211,7 @@ Frontend/
 
 ---
 
-## 📝 Notes
+## Notes
 
 - The backend and frontend are run separately, in different folders.
 - If Vite opens on a different port, use the port printed in the terminal.
@@ -224,7 +219,7 @@ Frontend/
 
 ---
 
-## 🚀 Useful Commands
+## Useful Commands
 
 | Location | Command | Description |
 |---|---|---|
