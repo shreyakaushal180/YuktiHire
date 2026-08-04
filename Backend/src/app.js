@@ -11,11 +11,16 @@ const frontendDistPath = path.join(__dirname, "../Frontend/dist")
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
+
+const corsOptions = {
     origin: clientUrl,
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
-}))
+}
+
+app.use(cors(corsOptions))
+app.options("*", cors(corsOptions))
 
 /* require all routes*/
 const authRouter = require("./routes/auth.routes")

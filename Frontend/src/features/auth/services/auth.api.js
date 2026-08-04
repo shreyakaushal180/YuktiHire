@@ -1,25 +1,4 @@
-import axios from "axios"
-
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000"
-const api = axios.create({
-    baseURL: apiBaseUrl,
-    withCredentials: true
-})
-
-export function setAuthToken(token) {
-    if (token) {
-        api.defaults.headers.common.Authorization = `Bearer ${token}`
-    } else {
-        delete api.defaults.headers.common.Authorization
-    }
-}
-
-if (typeof window !== "undefined") {
-    const savedToken = localStorage.getItem("token")
-    if (savedToken) {
-        setAuthToken(savedToken)
-    }
-}
+import { api, setAuthToken } from "../../../services/api.js"
 
 export async function register({ username, email, password }) {
 
