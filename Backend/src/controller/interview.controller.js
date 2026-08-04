@@ -14,16 +14,17 @@ async function generateInterViewReportController(req, res) {
 
     const resumeContent = await pdfParse(req.file.buffer)
     const { selfDescription, jobDescription } = req.body
+    const resumeText = resumeContent.text
 
     const interViewReportByAi = await generateInterviewReport({
-        resume: resumeContent.text,
+        resume: resumeText,
         selfDescription,
         jobDescription
     })
 
     const interviewReport = await interviewReportModel.create({
         user: req.user.id,
-        resume: resumeContent.text,
+        resume: resumeText,
         selfDescription,
         jobDescription,
         ...interViewReportByAi

@@ -11,12 +11,32 @@ const Home = () => {
     const [jobDescription, setJobDescription] = useState('')
     const [selfDescription, setSelfDescription] = useState('')
     const [fileName, setFileName] = useState(null)
+    const [error, setError] = useState(null)
     const resumeInputRef = useRef()
     const navigate = useNavigate()
 
     const handleGenerateReport = async () => {
-        const resumeFile = resumeInputRef.current.files[0]
+        const resumeFile = resumeInputRef.current?.files?.[0]
+
+        if (!jobDescription.trim()) {
+            setError('Job description is required to generate your interview plan.')
+            return
+        }
+
+        if (!resumeFile && !selfDescription.trim()) {
+            setError('Please upload a resume or add a self-description before generating.')
+            return
+        }
+
+        setError(null)
+
         const data = await generateReport({ jobDescription, selfDescription, resumeFile })
+
+        if (!data || !data._id) {
+            setError('Unable to generate the interview strategy right now. Please try again later.')
+            return
+        }
+
         navigate(`/interview/${data._id}`)
     }
 
@@ -151,6 +171,7 @@ const Home = () => {
                 {/* Card Footer */}
                 <div className='interview-card__footer'>
                     <span className='footer-info'>AI-Powered · ~30 seconds</span>
+                    {error && <div className='error-message'>{error}</div>}
                     <button
                         onClick={handleGenerateReport}
                         className='generate-btn'
